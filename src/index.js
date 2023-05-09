@@ -14,7 +14,7 @@ import templateMap from './hbs/map.hbs';
 // use root template, apply to "app" div
 let appEl = document.getElementById("app");
 let mainEl;
-appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Travel Locations" } });
+appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locations" } });
 let locationMarkers = [];
 
 window.onload = () => {
@@ -33,6 +33,11 @@ window.onload = () => {
 			lMarker.getElement().addEventListener('click', function (e) {
 				map.easeTo({ center: lMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
 				e.stopPropagation();
+				var lpopup = new tt.Popup({ className: 'lpopup' })
+					.setHTML(pos.name)
+					.addTo(map);
+
+				lMarker.setPopup(lpopup);
 			});
 			locationMarkers[i] = lMarker;
 			let opt = document.createElement("option");
@@ -41,6 +46,7 @@ window.onload = () => {
 
 			selectBox.add(opt);
 			i++;
+
 		};
 		selectBox.addEventListener('change', function (e) {
 			map.easeTo({
@@ -48,6 +54,8 @@ window.onload = () => {
 				zoom: 18, pitch: 45, bearing: 45, duration: 2000
 			});
 		});
+
+
 	});
 
 	ipLocation().then((location) => {
@@ -81,10 +89,10 @@ window.onload = () => {
 
 
 		var popup = new tt.Popup({ className: 'popup' })
-			.setHTML("<h1>Hello I'm a Popup!</h1>")
+			.setHTML("<h1>Here is the location of your ip address!</h1>")
 			.addTo(map);
 
-		// marker.setPopup(popup);
+		marker.setPopup(popup);
 		// marker.getElement().addEventListener("click", function () {
 		// 	console.log("marker clicked");
 		// });
