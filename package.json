@@ -14,16 +14,16 @@
 		"serve": "http-server ./dist -C certs/cert.pem -K certs/key.pem -S"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.20.12",
-		"@babel/preset-env": "^7.20.2",
+		"@babel/core": "^7.21.8",
+		"@babel/preset-env": "^7.21.5",
 		"babel-loader": "^9.1.2",
 		"css-loader": "^6.7.3",
-		"date-fns": "^2.29.3",
+		"date-fns": "^2.30.0",
 		"handlebars": "^4.7.7",
 		"handlebars-loader": "^1.7.3",
-		"style-loader": "^3.3.1",
-		"webpack": "^5.75.0",
-		"webpack-cli": "^5.0.1"
+		"style-loader": "^3.3.2",
+		"webpack": "^5.82.0",
+		"webpack-cli": "^5.1.1"
 	},
 	"dependencies": {
 		"@tomtom-international/web-sdk-maps": "^6.23.0",

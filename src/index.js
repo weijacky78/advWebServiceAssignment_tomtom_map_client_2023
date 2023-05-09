@@ -6,6 +6,7 @@ import ipLocation from "./js/ipLocation";
 import jsLocation from "./js/jsLocation";
 import jsWatchLocation from "./js/jsWatchLocation";
 import gatineauHydrantsLocation from "./js/gatineauHydrantsLocation";
+import ottawaLocation from "./js/ottawaLocation";
 
 import templateRoot from './hbs/root.hbs';
 import templateMap from './hbs/map.hbs';
@@ -13,8 +14,8 @@ import templateMap from './hbs/map.hbs';
 // use root template, apply to "app" div
 let appEl = document.getElementById("app");
 let mainEl;
-appEl.innerHTML = templateRoot({ siteInfo: { title: "Hydrants in Gatineau" } });
-let hydrantsMarkers = [];
+appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Travel Locations" } });
+let locationMarkers = [];
 
 window.onload = () => {
 	mainEl = document.getElementById("main");
@@ -23,17 +24,17 @@ window.onload = () => {
 	initMap();
 
 
-	gatineauHydrantsLocation().then((posList) => {
+	ottawaLocation().then((posList) => {
 		let selectBox = document.getElementById("places");
-		hydrantsMarkers = []; // reset the hydrantsMarkers into a blank array
+		locationMarkers = []; // reset the locationMarkers into a blank array
 		let i = 0;
 		for (let pos of posList) {
-			let hlMarker = new tt.Marker().setLngLat([pos.lng, pos.lat]).addTo(map);
-			hlMarker.getElement().addEventListener('click', function (e) {
-				map.easeTo({ center: hlMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
+			let lMarker = new tt.Marker().setLngLat([pos.lng, pos.lat]).addTo(map);
+			lMarker.getElement().addEventListener('click', function (e) {
+				map.easeTo({ center: lMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
 				e.stopPropagation();
 			});
-			hydrantsMarkers[i] = hlMarker;
+			locationMarkers[i] = lMarker;
 			let opt = document.createElement("option");
 			opt.value = i; // set the order number of options to 'i' which represented the order num of the array order
 			opt.text = pos.spec;
@@ -43,7 +44,7 @@ window.onload = () => {
 		};
 		selectBox.addEventListener('change', function (e) {
 			map.easeTo({
-				center: hydrantsMarkers[selectBox.selectedIndex].getLngLat(),
+				center: locationMarkers[selectBox.selectedIndex].getLngLat(),
 				zoom: 18, pitch: 45, bearing: 45, duration: 2000
 			});
 		});
