@@ -37,7 +37,7 @@ window.onload = () => {
 			locationMarkers[i] = lMarker;
 			let opt = document.createElement("option");
 			opt.value = i; // set the order number of options to 'i' which represented the order num of the array order
-			opt.text = pos.spec;
+			opt.text = pos.name;
 
 			selectBox.add(opt);
 			i++;
