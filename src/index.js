@@ -34,7 +34,7 @@ window.onload = () => {
 				map.easeTo({ center: lMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
 				e.stopPropagation();
 				var lpopup = new tt.Popup({ className: 'lpopup' })
-					.setHTML(pos.name)
+					.setHTML(`<div>${pos.name}</div>` + `<div>${pos.address}</div>`)
 					.addTo(map);
 
 				lMarker.setPopup(lpopup);
