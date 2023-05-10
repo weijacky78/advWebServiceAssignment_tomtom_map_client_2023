@@ -20,7 +20,7 @@ window.onload = () => {
 
 	weather().then((data) => {
 		let weatherEl = document.getElementById("weather");
-		weatherEl.innerHTML = `<div>${data.date}</div>` + `<div>${data.wDescriptions}` + `<div>${data.temperature}`
+		weatherEl.innerHTML = `<div>${data.date}</div>` + `<div>${data.wDescriptions}</div>` + `<div>${data.temperature}&#176C</div>`
 	});
 
 
