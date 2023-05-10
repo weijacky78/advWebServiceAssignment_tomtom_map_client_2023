@@ -1,12 +1,11 @@
 import "./css/styles.css";
-
 import tt from "@tomtom-international/web-sdk-maps"
 import map1Style from "./js/map1";
 import ipLocation from "./js/ipLocation";
 import jsLocation from "./js/jsLocation";
 import jsWatchLocation from "./js/jsWatchLocation";
-import gatineauHydrantsLocation from "./js/gatineauHydrantsLocation";
 import ottawaLocation from "./js/ottawaLocation";
+import weather from "./js/weather";
 
 import templateRoot from './hbs/root.hbs';
 import templateMap from './hbs/map.hbs';
@@ -18,9 +17,17 @@ appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locat
 let locationMarkers = [];
 
 window.onload = () => {
+
+	weather().then((data) => {
+		let weatherEl = document.getElementById("weather");
+		weatherEl.innerHTML = `<div>${data.date}</div>` + `<div>${data.wDescriptions}` + `<div>${data.temperature}`
+	});
+
+
+
 	mainEl = document.getElementById("main");
 	mainEl.innerHTML = templateMap({});
-
+	// initWeather();
 	initMap();
 
 
@@ -113,5 +120,7 @@ let initMap = () => {
 		pitch: 10
 	});
 
-
 };
+
+
+
