@@ -35,3 +35,33 @@ ul {
 #home {
 	font-size: 30px;
 }
+
+header {
+	font-size: 36px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	display: flex;
+	margin-top: 5px;
+	/* margin-left: 40vw; */
+	width: 100vw;
+	height: 10vh;
+	background-color: rgba(230, 208, 17, 0.808);
+}
+
+#weather {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-style: italic;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+#weather_header {
+	background-color: rgba(172, 111, 19, 0.699);
+	width: 300px;
+	height: 30px;
+	margin-bottom: 10px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-style: italic;
+	font-size: 22px;
+}

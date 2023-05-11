@@ -12,7 +12,7 @@ import templateMap from './hbs/map.hbs';
 // use root template, apply to "app" div
 let appEl = document.getElementById("app");
 let mainEl;
-appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locations" } });
+appEl.innerHTML = templateRoot({ siteInfo: { title: "Explore Ottawa Nature Parks 2023" } });
 let locationMarkers = [];
 
 window.onload = () => {
