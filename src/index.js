@@ -10,7 +10,8 @@ import pages from './js/json/pages.js';
 
 //templates
 import templatePages from './hbs/pages.hbs'; // daddy template
-import templateRoot from './hbs/root.hbs'; // landing, this will just be navigation soon, and I'll add a landing.hbs for homepage
+import templateRoot from './hbs/root.hbs'; // nav-bar, weather, logo, etc
+import templateLanding from './hbs/landing.hbs'; // landing page
 import templateMap from './hbs/map.hbs'; // map
 import templateInfo from './hbs/info.hbs'; // info
 import templateContact from './hbs/contact.hbs'; // contact
@@ -21,12 +22,9 @@ let appEl = document.getElementById("app");
 appEl.innerHTML = templateRoot(pages);
 
 let mainEl = document.getElementById("root-main");
-//appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locations" } });
-
 
 window.onload = () => {
-	console.log(pages);
-	mainEl.innerHTML = templatePages(pages.pages[0]); // makes the page on load be [0] in the list (Home, in this case)
+	mainEl.innerHTML = templateLanding(); // makes the page on load be [0] in the list (Home, in this case)
 
 	let elsNavLink = document.getElementsByClassName("navigation-li"); // grabbing navigation-link for for loop
 
@@ -37,13 +35,12 @@ window.onload = () => {
 
 			// if Home is clicked on it shows the home page and fetches the stuff from the json file
 			if (page.name === "Home") {
-				mainEl.innerHTML = templateRoot();
+				mainEl.innerHTML = templateLanding();
 			}
 
 			if (page.name === "Map") {
 				mainEl.innerHTML = templateMap({});
 				mapInit(); // calling module mapinitializer.js
-
 			}
 
 			if (page.name === "Info") {

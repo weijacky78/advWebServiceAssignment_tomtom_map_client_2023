@@ -1,17 +1,28 @@
-<header>{{siteInfo.title}}</header>
-<nav>
-	<ul>
-		{{#each pages}}
-		<li class="navigation-li" data-link="{{name}}">{{name}}</li>
-		{{/each}}
-	</ul>
-</nav>
-<div id="weatherBar">
+<div id="root-master-container">
+	<div id="root-left">
+		<div id="weatherBar">
 
+		</div>
+	</div>
+	<div id="root-middle">
+		<p id="root-header">{{siteInfo.title}}</p>
+		<nav>
+			<ul id="root-nav">
+				{{#each pages}}
+				<li class="navigation-li" data-link="{{name}}">{{name}}</li>
+				{{/each}}
+			</ul>
+
+		</nav>
+	</div>
+
+	<div id="root-right">
+		<p>root right</p>
+	</div>
 </div>
+
 
 <main id="root-main">
 
-	<p>does this work?</p>
-	<p>This is the home page</p>
+	<p>this is root</p>
 </main>

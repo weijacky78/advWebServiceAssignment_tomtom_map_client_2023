@@ -1,10 +1,9 @@
 export default {
-    'siteInfo': { 'title': "Ottawa Tourist and Nature parks" },
+    'siteInfo': { 'title': "Tourism Ottawa" },
     'pages': [
         {
             'name': 'Home',
-            'headertext': 'home page',
-            'text': 'placeholder text',
+            'headertext': 'Home page',
         },
 
         {
@@ -21,7 +20,6 @@ export default {
             'name': 'Contact Us',
             'headertext': "Contact",
         }
-
     ]
 
 }
