@@ -42,8 +42,6 @@
 	margin: 0;
 }
 
-
-
 ul>li {
 	margin: 5px;
 	color: darkcyan;
@@ -57,17 +55,37 @@ ul>li:hover {
 	color: white;
 }
 
+/* footer */
+
+#footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: beige;
+	text-align: center;
+}
+
 /* other css stuff */
+
+/* map page */
+
+#map {
+	width: 75%;
+	height: 70vh;
+}
+
+#map-master-container {
+	display: flex;
+	flex-direction: row;
+}
+
+/* 
+end of map page */
 
 body {
 	margin: 0;
 }
-
-#map {
-	height: 800px;
-	width: 100%;
-}
-
 
 h1 {
 	color: white;
