@@ -3,8 +3,6 @@ import "./css/styles.css";
 
 //modules
 import weather from "./js/weather";
-//import tt from "@tomtom-international/web-sdk-maps";
-// import map1Style from "./js/map1";
 import mapInit from "./js/mapinitializer.js";
 
 // list of pages for nav-link
@@ -12,7 +10,7 @@ import pages from './js/json/pages.js';
 
 //templates
 import templatePages from './hbs/pages.hbs'; // daddy template
-import templateRoot from './hbs/root.hbs'; // landing
+import templateRoot from './hbs/root.hbs'; // landing, this will just be navigation soon, and I'll add a landing.hbs for homepage
 import templateMap from './hbs/map.hbs'; // map
 import templateInfo from './hbs/info.hbs'; // info
 import templateContact from './hbs/contact.hbs'; // contact
@@ -61,19 +59,11 @@ window.onload = () => {
 	}
 }
 
-//mainEl = document.getElementById("main");
-//  reactivate later
-//
-
-
-// weather stuff
-// initWeather();
-
-// get this to show on load
+// weather loads into nav-bar
+// add an ease-into later so that when it loads it doesn't just pop into the page
 weather().then((data) => {
 	let weatherEl = document.getElementById("weatherBar");
 	weatherEl.innerHTML = templateWeather(data);
-	//weatherEl.innerHTML = `<div>${data.date}</div>` + `<div>${data.wDescriptions}</div>` + `<div>${data.temperature}&#176C</div>`
 });
 
 
