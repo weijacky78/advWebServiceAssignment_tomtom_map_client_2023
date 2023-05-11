@@ -2,10 +2,8 @@
     ${data.temperature}&#176C</div>`
 }); --}}
 
-<div>
-    {{date}}
-    {{#each wDescriptions}}
-    {{this}}
-    {{/each}}
-    {{temperature}}
+<div class="weather_container">
+    <div>Last updated: {{date}}</div>
+    <div>Today: {{wDescriptions}}</div>
+    <div>Now: {{temperature}}&#176C</div>
 </div>
