@@ -1,103 +1,84 @@
+//styling
 import "./css/styles.css";
-import tt from "@tomtom-international/web-sdk-maps"
-import map1Style from "./js/map1";
-import ipLocation from "./js/ipLocation";
-import jsLocation from "./js/jsLocation";
-import ottawaLocation from "./js/ottawaLocation";
+
+//modules
 import weather from "./js/weather";
+//import tt from "@tomtom-international/web-sdk-maps";
+// import map1Style from "./js/map1";
+import mapInit from "./js/mapinitializer.js";
 
-import templateRoot from './hbs/root.hbs';
-import templateMap from './hbs/map.hbs';
+// list of pages for nav-link
+import pages from './js/json/pages.js';
 
-// use root template, apply to "app" div
+//templates
+import templatePages from './hbs/pages.hbs'; // daddy template
+import templateRoot from './hbs/root.hbs'; // landing
+import templateMap from './hbs/map.hbs'; // map
+import templateInfo from './hbs/info.hbs'; // info
+import templateContact from './hbs/contact.hbs'; // contact
+import templateWeather from './hbs/weather.hbs'; //weather template
+
 let appEl = document.getElementById("app");
-let mainEl;
-appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locations" } });
-let locationMarkers = [];
+
+appEl.innerHTML = templateRoot(pages);
+
+let mainEl = document.getElementById("root-main");
+//appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locations" } });
+
 
 window.onload = () => {
+	console.log(pages);
+	mainEl.innerHTML = templatePages(pages.pages[0]); // makes the page on load be [0] in the list (Home, in this case)
 
-	weather().then((data) => {
-		let weatherEl = document.getElementById("weather");
-		weatherEl.innerHTML = `<div>${data.date}</div>` + `<div>${data.wDescriptions}</div>` + `<div>${data.temperature}&#176C</div>`
-	});
+	let elsNavLink = document.getElementsByClassName("navigation-li"); // grabbing navigation-link for for loop
 
+	for (let elLink of elsNavLink) {
 
+		elLink.addEventListener('click', function () {
+			let page = { name: this.dataset.link };
 
-	mainEl = document.getElementById("main");
-	mainEl.innerHTML = templateMap({});
-	// initWeather();
-	initMap();
+			// if Home is clicked on it shows the home page and fetches the stuff from the json file
+			if (page.name === "Home") {
+				mainEl.innerHTML = templateRoot();
+			}
 
+			if (page.name === "Map") {
+				mainEl.innerHTML = templateMap({});
+				mapInit(); // calling module mapinitializer.js
 
-	ottawaLocation().then((posList) => {
-		let selectBox = document.getElementById("places");
-		locationMarkers = []; // reset the locationMarkers into a blank array
-		let i = 0;
-		for (let pos of posList) {
-			let lMarker = new tt.Marker().setLngLat([pos.lng, pos.lat]).addTo(map);
-			lMarker.getElement().addEventListener('click', function (e) {
-				map.easeTo({ center: lMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
-				e.stopPropagation();
-				var lpopup = new tt.Popup({ className: 'lpopup' })
-					.setHTML(`<div>${pos.name}</div>` + `<div>${pos.address}</div>`)
-					.addTo(map);
+			}
 
-				lMarker.setPopup(lpopup);
-			});
-			locationMarkers[i] = lMarker;
-			let opt = document.createElement("option");
-			opt.value = i; // set the order number of options to 'i' which represented the order num of the array order
-			opt.text = pos.name;
+			if (page.name === "Info") {
+				mainEl.innerHTML = templateInfo();
+			}
 
-			selectBox.add(opt);
-			i++;
-
-		};
-		selectBox.addEventListener('change', function (e) {
-			map.easeTo({
-				center: locationMarkers[selectBox.selectedIndex].getLngLat(),
-				zoom: 18, pitch: 45, bearing: 45, duration: 2000
-			});
-		});
-		document.getElementById("map").addEventListener('click', function () {
-			map.easeTo({ center: [-75.683692, 45.4028986], zoom: 10, pitch: 10, bearing: 0, duration: 2000 });
-		});
-
-	});
-
-	ipLocation().then((location) => {
-
-		jsLocation((pos) => {
-			let jsMarker = new tt.Marker().setLngLat([pos.longitude, pos.latitude]).addTo(map);
-			jsMarker.getElement().addEventListener('click', function (e) {
-				map.easeTo({ center: jsMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
-				e.stopPropagation();
-			});
-			var popup = new tt.Popup({ className: 'popup' })
-				.setHTML('<span id="home">💒</span>')
-				.addTo(map);
-
-			jsMarker.setPopup(popup);
+			else if (page.name === "Contact Us") {
+				mainEl.innerHTML = templateContact();
+			}
 
 		});
 
-	});
-};
+	}
+}
 
-let map;
-let initMap = () => {
-	tt.setProductInfo("test-demo", "0.0.1");
-	map = tt.map({
-		key: "yGAHDK7KSva4J6KDjwBtsLmFGFb0AHE9",
-		container: "map",
-		style: map1Style,
-		center: [-75.683692, 45.4028986],
-		zoom: 10,
-		pitch: 10
-	});
+//mainEl = document.getElementById("main");
+//  reactivate later
+//
 
-};
+
+// weather stuff
+// initWeather();
+
+// get this to show on load
+weather().then((data) => {
+	let weatherEl = document.getElementById("weatherBar");
+	weatherEl.innerHTML = templateWeather(data);
+	//weatherEl.innerHTML = `<div>${data.date}</div>` + `<div>${data.wDescriptions}</div>` + `<div>${data.temperature}&#176C</div>`
+});
+
+
+
+
 
 
 

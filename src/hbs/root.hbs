@@ -1,18 +1,17 @@
 <header>{{siteInfo.title}}</header>
 <nav>
 	<ul>
-
+		{{#each pages}}
+		<li class="navigation-li" data-link="{{name}}">{{name}}</li>
+		{{/each}}
 	</ul>
 </nav>
-<div id="toolbar">
-	<div id="weather">
-
-	</div>
-	<select id="places">
-
-	</select>
+<div id="weatherBar">
 
 </div>
-<main id="main">
 
+<main id="root-main">
+
+	<p>does this work?</p>
+	<p>This is the home page</p>
 </main>

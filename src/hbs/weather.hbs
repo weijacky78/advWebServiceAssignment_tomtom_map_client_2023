@@ -1,0 +1,11 @@
+{{!-- weatherEl.innerHTML = `<div>${data.date}</div>` + `<div>${data.wDescriptions}</div>` + `<div>
+    ${data.temperature}&#176C</div>`
+}); --}}
+
+<div>
+    {{date}}
+    {{#each wDescriptions}}
+    {{this}}
+    {{/each}}
+    {{temperature}}
+</div>
