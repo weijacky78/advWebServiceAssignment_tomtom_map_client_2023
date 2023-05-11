@@ -31,3 +31,7 @@ ul>li:hover {
 ul {
 	display: flex;
 }
+
+#home {
+	font-size: 30px;
+}

@@ -3,7 +3,6 @@ import tt from "@tomtom-international/web-sdk-maps"
 import map1Style from "./js/map1";
 import ipLocation from "./js/ipLocation";
 import jsLocation from "./js/jsLocation";
-import jsWatchLocation from "./js/jsWatchLocation";
 import ottawaLocation from "./js/ottawaLocation";
 import weather from "./js/weather";
 
@@ -61,49 +60,27 @@ window.onload = () => {
 				zoom: 18, pitch: 45, bearing: 45, duration: 2000
 			});
 		});
-
+		document.getElementById("map").addEventListener('click', function () {
+			map.easeTo({ center: [-75.683692, 45.4028986], zoom: 10, pitch: 10, bearing: 0, duration: 2000 });
+		});
 
 	});
 
 	ipLocation().then((location) => {
 
-		// jsWatchLocation((pos) => {
-		// let jsMarker = new tt.Marker().setLngLat([pos.longitude, pos.latitude]).addTo(map);
-		// 	// console.log(pos);
-		// });
-
-
 		jsLocation((pos) => {
 			let jsMarker = new tt.Marker().setLngLat([pos.longitude, pos.latitude]).addTo(map);
+			jsMarker.getElement().addEventListener('click', function (e) {
+				map.easeTo({ center: jsMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
+				e.stopPropagation();
+			});
+			var popup = new tt.Popup({ className: 'popup' })
+				.setHTML('<span id="home">💒</span>')
+				.addTo(map);
+
+			jsMarker.setPopup(popup);
 
 		});
-
-		let marker = new tt.Marker().setLngLat([location.lng, location.lat]).addTo(map);
-		marker.getElement().addEventListener('click', function (e) {
-			map.easeTo({ center: marker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
-			e.stopPropagation();
-		});
-
-		// document.getElementById("map").addEventListener('click', function () {
-		// 	map.easeTo({ center: marker.getLngLat(), zoom: 12, pitch: 10, bearing: 0, duration: 2000 });
-		// });
-
-
-
-		// map.setBearing(0);
-
-		// var marker = new tt.Marker().setLngLat([-75.737609, 45.455313]).addTo(map);
-
-
-		var popup = new tt.Popup({ className: 'popup' })
-			.setHTML("<h1>Here is the location of your ip address!</h1>")
-			.addTo(map);
-
-		marker.setPopup(popup);
-		// marker.getElement().addEventListener("click", function () {
-		// 	console.log("marker clicked");
-		// });
-
 
 	});
 };
@@ -115,8 +92,8 @@ let initMap = () => {
 		key: "yGAHDK7KSva4J6KDjwBtsLmFGFb0AHE9",
 		container: "map",
 		style: map1Style,
-		center: [-75.737609, 45.455313],
-		zoom: 12,
+		center: [-75.683692, 45.4028986],
+		zoom: 10,
 		pitch: 10
 	});
 
