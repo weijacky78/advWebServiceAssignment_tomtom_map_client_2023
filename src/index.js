@@ -19,12 +19,9 @@ import templateContact from './hbs/contact.hbs'; // contact
 import templateWeather from './hbs/weather.hbs'; //weather template
 
 let appEl = document.getElementById("app");
-
-appEl.innerHTML = templateRoot(pages);
-
-let mainEl = document.getElementById("root-main");
-//appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locations" } });
-
+let mainEl;
+appEl.innerHTML = templateRoot({ siteInfo: { title: "30 Ottawa Nature Park Locations" } });
+let locationMarkers = [];
 
 window.onload = () => {
 	console.log(pages);
