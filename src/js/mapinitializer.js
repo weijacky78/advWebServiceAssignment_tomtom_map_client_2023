@@ -26,7 +26,7 @@ export default function () {
     initMap();
 
     ottawaLocation().then((posList) => {
-        let selectBox = document.getElementById("places");
+        let locationsEl = document.getElementById("locations");
         locationMarkers = []; // reset the locationMarkers into a blank array
         let i = 0;
         for (let pos of posList) {
@@ -41,20 +41,25 @@ export default function () {
                 lMarker.setPopup(lpopup);
             });
             locationMarkers[i] = lMarker;
-            let opt = document.createElement("option");
-            opt.value = i; // set the order number of options to 'i' which represented the order num of the array order
-            opt.text = pos.name;
+            let opt = document.createElement("div"); // creates a div
+            opt.className = "locations-container";
+            opt.innerHTML = `<div>${pos.name}</div>`; // puts a div inside of the opt div (line 44)
+            opt.dataset.i = i; // set the order number of options to 'i' which represented the order num of the array order
 
-            selectBox.add(opt);
+            opt.addEventListener('click', function (e) {
+                let j = this.dataset.i; // setting j = i which is the thing we clicked in the list
+                map.easeTo({
+                    center: locationMarkers[j].getLngLat(),
+                    zoom: 18, pitch: 45, bearing: 45, duration: 2000
+                });
+            });
+
+            locationsEl.appendChild(opt);
+
             i++;
 
         };
-        selectBox.addEventListener('change', function (e) {
-            map.easeTo({
-                center: locationMarkers[selectBox.selectedIndex].getLngLat(),
-                zoom: 18, pitch: 45, bearing: 45, duration: 2000
-            });
-        });
+        // 
         document.getElementById("map").addEventListener('click', function () {
             map.easeTo({ center: [-75.683692, 45.4028986], zoom: 10, pitch: 10, bearing: 0, duration: 2000 });
         });
