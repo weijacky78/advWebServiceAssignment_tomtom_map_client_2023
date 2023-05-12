@@ -1,9 +1,14 @@
 /* Root css */
+html {
+	scroll-behavior: smooth;
+	background-color: #FFAC77;
+}
+
 #root-master-container {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	background-color: beige;
+	background-color: #FC6100;
 	position: relative;
 }
 
@@ -40,19 +45,26 @@
 #root-header {
 	font-size: 36pt;
 	margin: 0;
+	color: black;
+	border-radius: 5px;
+	background-color: #FFAC77;
 }
 
 ul>li {
 	margin: 5px;
-	color: darkcyan;
+	color: black;
 	list-style: none;
 	cursor: pointer;
 	font-size: 22pt;
+	border-radius: 5px;
+	transition: background-color .5s, text-decoration .5s;
 }
 
 ul>li:hover {
-	background-color: darkcyan;
-	color: white;
+	background-color: #FFAC77;
+	color: black;
+	border-radius: 5px;
+	text-decoration: underline;
 }
 
 /* footer */
@@ -66,7 +78,66 @@ ul>li:hover {
 	text-align: center;
 }
 
+/* anchor */
+
+#up-anchor {
+	position: fixed;
+	bottom: 95px;
+	right: 25px;
+	padding: 2px;
+}
+
 /* other css stuff */
+
+/*landing page*/
+#landing-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#landing-header>p {
+	font-size: 26pt;
+	padding: 8px;
+	margin: 0;
+}
+
+#landing-main {
+	background-color: white;
+	height: 70vh;
+	width: 900px;
+	position: absolute;
+	top: 62%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#landing-left,
+#landing-middle,
+#landing-right {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: #FC6100 solid 2px;
+}
+
+#landing-left {
+	width: 25%;
+	height: 50px;
+}
+
+#landing-middle {
+	flex-direction: column;
+	width: 60%;
+}
+
+#landing-right {
+	width: 25%;
+	height: 50px;
+}
 
 /* map page */
 
