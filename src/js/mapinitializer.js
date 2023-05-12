@@ -43,7 +43,7 @@ export default function () {
             locationMarkers[i] = lMarker;
             let opt = document.createElement("div"); // creates a div
             opt.className = "locations-container";
-            opt.innerHTML = `<div>${pos.name}</div>`; // puts a div inside of the opt div (line 44)
+            opt.innerHTML = `<div>${pos.name}</div>` + `<div>${pos.address}</div>`; // puts a div inside of the opt div (line 44)
             opt.dataset.i = i; // set the order number of options to 'i' which represented the order num of the array order
 
             opt.addEventListener('click', function (e) {

@@ -204,6 +204,20 @@ ul>li:hover {
 	height: 90vh;
 	border: 2px white solid;
 	overflow-y: scroll;
+	background-color: white;
+}
+
+.locations-container {
+	font-size: 16pt;
+	transition: background-color .5s, text-decoration .5s;
+	padding: 8px;
+}
+
+.locations-container:hover {
+	background-color: #9bd98a81;
+	color: black;
+	border-radius: 5px;
+	text-decoration: underline;
 }
 
 .locations-container {
