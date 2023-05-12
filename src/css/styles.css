@@ -52,6 +52,8 @@ html {
 
 ul>li {
 	margin: 5px;
+	margin-left: 15px;
+	margin-right: 15px;
 	color: black;
 	list-style: none;
 	cursor: pointer;
@@ -140,15 +142,28 @@ ul>li:hover {
 }
 
 /* map page */
+#map-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-#map {
-	width: 75%;
-	height: 70vh;
+#map-header>p {
+	font-size: 26pt;
+	padding: 8px;
+	margin: 0;
 }
 
 #map-master-container {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
+	padding: 8px;
+}
+
+#map {
+	width: 75%;
+	height: 90vh;
 }
 
 /* 
@@ -168,19 +183,6 @@ h1 {
 #home {
 	font-size: 30px;
 }
-
-/* header {
-	font-size: 36px;
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-style: italic;
-	font-weight: bold;
-	display: flex;
-	margin-top: 5px;
-	width: 100vw;
-	height: 10vh;
-	background-color: rgba(230, 208, 17, 0.808);
-} */
-
 
 #logo-img {
 	height: 60vh;
