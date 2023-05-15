@@ -57,7 +57,7 @@ export default function () {
                 map.easeTo({ center: lMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
                 e.stopPropagation();
                 var lpopup = new tt.Popup({ className: 'lpopup' })
-                    .setHTML(`<div id="home">🏞️${pos.name}</div>` + `<div>Address: ${pos.address}</div>` + `<div>Distance: <span class="distance">${diff.distance_in_meter / 1000}(km)  from your location</span></div>`)
+                    .setHTML(`<div id="home">🏞️${pos.name}</div>` + `<div>Address: ${pos.address}</div>` + `<div>${pos.city}, ${pos.province}</div>` + `<div>Distance: <span class="distance">${diff.distance_in_meter / 1000}(km)  from your location</span></div>`)
                     .addTo(map);
 
                 lMarker.setPopup(lpopup);
