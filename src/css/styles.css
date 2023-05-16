@@ -107,7 +107,15 @@ ul>li:hover {
 	bottom: 95px;
 	right: 25px;
 	padding: 2px;
+	background-color: rgba(255, 255, 255, 0.537);
+	border-radius: 15px;
+	transition: background-color 1s;
 }
+
+#up-anchor:hover {
+	background-color: rgba(255, 255, 255, 0.947);
+}
+
 
 #anchor {
 	display: block;
