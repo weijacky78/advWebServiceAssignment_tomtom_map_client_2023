@@ -1,7 +1,7 @@
 import tt from "@tomtom-international/web-sdk-maps";
 import ipLocation from "./ipLocation";
 import jsLocation from "./jsLocation";
-import ottawaLocation from "./ottawaLocation";
+import ottawaNatureLocation from "./ottawaNatureLocation";
 import map1Style from "./map1";
 
 export default function () {
@@ -10,8 +10,6 @@ export default function () {
     let jsMarker;
     let map;
     let initMap = () => {
-        console.log("hello mao");
-        tt.setProductInfo("test-demo", "0.0.1");
         map = tt.map({
             key: "yGAHDK7KSva4J6KDjwBtsLmFGFb0AHE9",
             container: "map",
@@ -25,7 +23,7 @@ export default function () {
 
     initMap();
 
-    ottawaLocation().then((posList) => {
+    ottawaNatureLocation().then((posList) => {
         let locationsEl = document.getElementById("locations");
         locationMarkers = []; // reset the locationMarkers into a blank array
         let i = 0;
@@ -57,7 +55,7 @@ export default function () {
                 map.easeTo({ center: lMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
                 e.stopPropagation();
                 var lpopup = new tt.Popup({ className: 'lpopup' })
-                    .setHTML(`<div id="home">🏞️${pos.name}</div>` + `<div>Address: ${pos.address}</div>` + `<div>${pos.city}, ${pos.province}</div>` + `<div>Distance: <span class="distance">${diff.distance_in_meter / 1000}(km)  from your location</span></div>`)
+                    .setHTML(`<div id="name_park"><img src="../img/ottawacitylogo.png" id="home" />${pos.name}</div>` + `<div>Address: ${pos.address}</div>` + `<div>${pos.city}, ${pos.province}</div>` + `<div>Distance: <span class="distance">${diff.distance_in_meter / 1000}(km)  from your location</span></div>`)
                     .addTo(map);
 
                 lMarker.setPopup(lpopup);
@@ -92,16 +90,18 @@ export default function () {
 
         jsLocation((pos) => {
             jsMarker = new tt.Marker().setLngLat([pos.longitude, pos.latitude]).addTo(map);
+            let homeMarkerPopup = () => {
+                var popup = new tt.Popup({ className: 'popup' })
+                    .setHTML('<img src="../img/home.png" id="home" />')
+                    .addTo(map);
+                jsMarker.setPopup(popup);
+            }
             jsMarker.getElement().addEventListener('click', function (e) {
+                homeMarkerPopup();
                 map.easeTo({ center: jsMarker.getLngLat(), zoom: 14, pitch: 45, bearing: 45, duration: 2000 });
                 e.stopPropagation();
             });
-            var popup = new tt.Popup({ className: 'popup' })
-                .setHTML('<span id="home">💒</span>')
-                .addTo(map);
-
-            jsMarker.setPopup(popup);
-
+            homeMarkerPopup();
         });
 
     });

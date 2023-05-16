@@ -432,7 +432,8 @@ h1 {
 
 
 #home {
-	font-size: 22px;
+	height: 36px;
+	width: 32px;
 }
 
 #logo-img {
@@ -442,4 +443,9 @@ h1 {
 .weather_container {
 	font-family: Arial, Helvetica, sans-serif;
 	color: black
+}
+
+#name_park {
+	font-size: 16px;
+	font-weight: bold;
 }
