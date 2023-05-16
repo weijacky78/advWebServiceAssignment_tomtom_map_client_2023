@@ -1,3 +1,21 @@
-<div>
-    <p>Contact page</p>
+<div id="contact-container">
+    <div id="contact-header">
+        <p>Contact us at:</p>
+        <p class="contact-header-p">311@ottawa.ca </p>
+        <p class="contact-header-p">or</p>
+        <p class="contact-header-p">at City hall, 110 Laurier Ave. W</p>
+        <p class="contact-header-p">or</p>
+        <p class="contact-header-p">Use the contact form below:</p>
+    </div>
+    <div id="form-container">
+        <form method="post">
+            <label for="email" class="label">Enter your email address:</label>
+            <input type="email" id="email" name="email" required asp-for="Email">
+
+            <label for="message" class="label">Write us a message:</label>
+            <textarea id="message" name="message" required asp-for="Message"></textarea>
+
+            <input type="submit" value="Save" class="submitbutton" />
+        </form>
+    </div>
 </div>
