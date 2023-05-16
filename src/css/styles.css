@@ -619,11 +619,9 @@ ul>li:hover {
 	cursor: pointer;
 }
 
-/* 
-end of map page */
+/* end of map page */
 
 /* info page */
-
 #info-header {
 	display: flex;
 	align-items: center;
@@ -634,6 +632,14 @@ end of map page */
 	font-size: 26pt;
 	padding: 8px;
 	margin: 0;
+}
+
+.info-sub-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 22pt;
+	text-decoration: underline;
 }
 
 #info-master-container {
@@ -649,7 +655,7 @@ end of map page */
 	display: flex;
 	flex-direction: column;
 	border: white 2px solid;
-	background-color: rgba(255, 255, 255, 0.564);
+	background-color: rgba(255, 255, 255, 0.712);
 	border-radius: 5px;
 }
 
@@ -659,15 +665,14 @@ end of map page */
 	flex-direction: column;
 	border: white 2px solid;
 	border-radius: 5px;
-	background-color: rgba(255, 255, 255, 0.564);
+	background-color: rgba(255, 255, 255, 0.712);
 }
 
-.accommodations {
-	list-style-type: disc;
-	font-size: 16pt;
+.info-list>p {
+	font-size: 14pt;
 }
 
-.restaurants {
+.info-list-population {
 	list-style-type: disc;
 	font-size: 16pt;
 }
@@ -685,7 +690,7 @@ end of map page */
 	margin: 0;
 }
 
-#riviera {
+.info-img {
 	max-width: 400px;
 	border: white 2px solid;
 	margin: 8px;
@@ -703,8 +708,6 @@ h1 {
 	color: white;
 	background-color: black;
 }
-
-
 
 #home {
 	height: 36px;
