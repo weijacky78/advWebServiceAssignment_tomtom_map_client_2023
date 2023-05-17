@@ -141,7 +141,7 @@ ul>li:hover {
 	padding: 8px;
 	margin: 0;
 	animation-name: text-animation;
-	animation-duration: 4s;
+	animation-duration: 1s;
 
 }
 
@@ -151,16 +151,17 @@ ul>li:hover {
 	height: 40px;
 	width: 40px;
 	opacity: 80%;
+	border-radius: 5px;
 }
 
 @keyframes text-animation {
 	0% {
-		margin-left: -80vw;
+		margin-left: -5vw;
 	}
 
 
 	50% {
-		margin-right: -80vw;
+		margin-right: -5vw;
 	}
 
 	100% {
@@ -231,14 +232,14 @@ ul>li:hover {
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
-	transition: width 2s;
+	transition: width 2s, background-color 1s;
 	overflow: visible;
 }
 
 /* landing left hover */
 #landing-left:hover {
 	width: 45%;
-	background-color: rgba(255, 255, 255, 0.692);
+	background-color: rgba(255, 255, 255, 0.867);
 }
 
 #landing-left p {
@@ -283,13 +284,13 @@ ul>li:hover {
 	margin: 8px;
 	display: flex;
 	flex-direction: column;
-	transition: width 1s;
+	transition: width 1s, background-color 1s;
 	overflow: visible;
 }
 
 /* landing middle hover */
 #landing-middle:hover {
-	background-color: rgba(255, 255, 255, 0.692);
+	background-color: rgba(255, 255, 255, 0.867);
 }
 
 #landing-middle p {
@@ -328,14 +329,14 @@ ul>li:hover {
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
-	transition: width 1s;
+	transition: width 1s, background-color 1s;
 	overflow: visible;
 }
 
 /* landing right hover */
 #landing-right:hover {
 	width: 45%;
-	background-color: rgba(255, 255, 255, 0.692);
+	background-color: rgba(255, 255, 255, 0.867);
 }
 
 #landing-right p {
@@ -343,6 +344,7 @@ ul>li:hover {
 	display: inline-block;
 }
 
+/* text hover controller*/
 #landing-right p:after {
 	content: "";
 	position: absolute;
@@ -404,14 +406,14 @@ ul>li:hover {
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
-	transition: width 1s;
+	transition: width 1s, background-color 1s;
 	overflow: visible;
 }
 
 /* landing sub left hover */
 #landing-sub-left:hover {
 	width: 72%;
-	background-color: rgba(255, 255, 255, 0.692);
+	background-color: rgba(255, 255, 255, 0.867);
 }
 
 #landing-sub-left p {
@@ -456,13 +458,13 @@ ul>li:hover {
 	margin: 8px;
 	display: flex;
 	flex-direction: column;
-	transition: width 1s;
+	transition: width 1s, background-color 1s;
 	overflow: visible;
 }
 
 /* landing sub middle hover */
 #landing-sub-middle:hover {
-	background-color: rgba(255, 255, 255, 0.692);
+	background-color: rgba(255, 255, 255, 0.867);
 }
 
 #landing-sub-middle p {
@@ -490,13 +492,13 @@ ul>li:hover {
 
 /* landing sub right */
 #landing-sub-right {
-	width: 80%;
+	width: 60%;
 	padding: 8px;
 	background-color: rgba(255, 255, 255, 0.511);
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
-	transition: width 1s;
+	transition: width 1s, background-color 1s;
 	overflow: visible;
 }
 
@@ -612,7 +614,7 @@ ul>li:hover {
 	padding: 8px;
 	margin: 0;
 	animation-name: text-animation;
-	animation-duration: 4s;
+	animation-duration: 1s;
 }
 
 #map-master-container {
@@ -668,7 +670,7 @@ ul>li:hover {
 	padding: 8px;
 	margin: 0;
 	animation-name: text-animation;
-	animation-duration: 4s;
+	animation-duration: 1s;
 }
 
 .info-sub-header {
@@ -684,7 +686,6 @@ ul>li:hover {
 	flex-direction: row;
 	justify-content: space-evenly;
 	padding: 8px;
-	background-image: url("../img/ottawabackgroundtwo.png");
 }
 
 #info-left {
@@ -707,11 +708,13 @@ ul>li:hover {
 
 .info-list>p {
 	font-size: 14pt;
+	color: black;
 }
 
 .info-list-population {
 	list-style-type: disc;
 	font-size: 16pt;
+	color: black;
 }
 
 .info-img-container {

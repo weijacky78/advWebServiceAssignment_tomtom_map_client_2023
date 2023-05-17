@@ -1,5 +1,5 @@
 export default {
-    'siteInfo': { 'title': "Explore Ottawa" },
+    'siteInfo': { 'title': "🔎 Explore Ottawa 🔍" },
     'pages': [
         {
             'name': 'Home',

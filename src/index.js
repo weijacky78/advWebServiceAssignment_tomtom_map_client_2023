@@ -4,6 +4,7 @@ import "./css/styles.css";
 //modules
 import weather from "./js/weather";
 import mapInit from "./js/mapinitializer.js";
+import scrollBackground from "./js/scrollbackground.js";
 
 // list of pages for nav-link
 import pages from './js/json/pages.js';
@@ -16,6 +17,7 @@ import templateMap from './hbs/map.hbs'; // map
 import templateInfo from './hbs/info.hbs'; // info
 import templateContact from './hbs/contact.hbs'; // contact
 import templateWeather from './hbs/weather.hbs'; //weather template
+
 
 let appEl = document.getElementById("app");
 
@@ -45,6 +47,7 @@ window.onload = () => {
 
 			if (page.name === "Info") {
 				mainEl.innerHTML = templateInfo();
+				scrollBackground();
 			}
 
 			else if (page.name === "Contact Us") {
