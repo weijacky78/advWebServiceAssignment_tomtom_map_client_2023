@@ -146,6 +146,7 @@ ul>li:hover {
 }
 
 #walking {
+	padding: 8px;
 	margin-left: 40px;
 	margin-right: 40px;
 	height: 40px;
@@ -183,7 +184,7 @@ ul>li:hover {
 	justify-content: center;
 	width: 50%;
 	font-size: 16pt;
-	margin-bottom: 60px;
+	margin-bottom: 20px;
 }
 
 
@@ -197,6 +198,7 @@ ul>li:hover {
 }
 
 #landing-container {
+	padding-top: 8px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -622,6 +624,7 @@ ul>li:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 8px;
+	margin-bottom: 26px;
 }
 
 #map {
@@ -752,6 +755,8 @@ ul>li:hover {
 	border: white 2px solid;
 	background-image: url("../img/ottawawinter.jpg");
 	background-repeat: no-repeat;
+	margin-bottom: 26px;
+	border-radius: 5px;
 }
 
 #form-container {
