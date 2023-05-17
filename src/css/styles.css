@@ -59,8 +59,9 @@ html {
 
 #root-header {
 	font-size: 36pt;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	margin: 0;
-	color: whitesmoke;
+	color: rgba(58, 2, 58, 0.959);
 	border-radius: 5px;
 	/* background-color: #9bd98a81; */
 	margin-top: 8px;
@@ -75,10 +76,10 @@ ul>li {
 	margin: 5px;
 	margin-left: 10px;
 	margin-right: 10px;
-	color: whitesmoke;
+	color: rgb(58, 2, 58, 0.959);
 	list-style: none;
 	cursor: pointer;
-	font-size: 18pt;
+	font-size: 16pt;
 	border-radius: 5px;
 	transition: background-color .5s, text-decoration .5s;
 }
@@ -135,9 +136,37 @@ ul>li:hover {
 }
 
 #landing-header>p {
-	font-size: 26pt;
+	font-size: 20pt;
+	font-style: italic;
 	padding: 8px;
 	margin: 0;
+	animation-name: text-animation;
+	animation-duration: 4s;
+
+}
+
+#walking {
+	margin-left: 40px;
+	margin-right: 40px;
+	height: 40px;
+	width: 40px;
+	opacity: 80%;
+}
+
+@keyframes text-animation {
+	0% {
+		margin-left: -80vw;
+	}
+
+
+	50% {
+		margin-right: -80vw;
+	}
+
+	100% {
+		margin: 0;
+	}
+
 }
 
 .landing-sub-header {
@@ -153,6 +182,7 @@ ul>li:hover {
 	justify-content: center;
 	width: 50%;
 	font-size: 16pt;
+	margin-bottom: 60px;
 }
 
 
@@ -577,9 +607,12 @@ ul>li:hover {
 }
 
 #map-header>p {
-	font-size: 26pt;
+	font-size: 20pt;
+	font-style: italic;
 	padding: 8px;
 	margin: 0;
+	animation-name: text-animation;
+	animation-duration: 4s;
 }
 
 #map-master-container {
@@ -603,7 +636,8 @@ ul>li:hover {
 }
 
 .locations-container {
-	font-size: 16pt;
+	font-size: 16px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	transition: background-color .5s, text-decoration .5s;
 	padding: 8px;
 }
@@ -629,9 +663,12 @@ ul>li:hover {
 }
 
 #info-header>p {
-	font-size: 26pt;
+	font-size: 20pt;
+	font-style: italic;
 	padding: 8px;
 	margin: 0;
+	animation-name: text-animation;
+	animation-duration: 4s;
 }
 
 .info-sub-header {
@@ -808,11 +845,15 @@ h1 {
 }
 
 .weather_container {
-	font-family: Arial, Helvetica, sans-serif;
-	color: whitesmoke
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	color: rgb(58, 2, 58, 0.959)
 }
 
 #name_park {
 	font-size: 16px;
 	font-weight: bold;
+}
+
+#p-text {
+	font-size: 22px;
 }
