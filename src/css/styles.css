@@ -156,12 +156,12 @@ ul>li:hover {
 
 @keyframes text-animation {
 	0% {
-		margin-left: -5vw;
+		margin-left: -10vw;
 	}
 
 
 	50% {
-		margin-right: -5vw;
+		margin-right: -10vw;
 	}
 
 	100% {
@@ -622,11 +622,18 @@ ul>li:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 8px;
+	margin-bottom: 30px;
+	border: 2px white solid;
+	border-radius: 5px;
+	/* margin: 8px; */
+	/* padding-bottom: 8px; */
+
 }
 
 #map {
 	width: 75%;
 	height: 90vh;
+
 }
 
 #map-places {
@@ -686,6 +693,7 @@ ul>li:hover {
 	flex-direction: row;
 	justify-content: space-evenly;
 	padding: 8px;
+	margin-bottom: 20px;
 }
 
 #info-left {
